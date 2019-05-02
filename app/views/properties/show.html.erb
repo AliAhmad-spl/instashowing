@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Picture:</strong>
+  <%=image_tag (@property.picture_url), style:"width:140px;height:90px;" %></
+</p>
+
+<p>
+  <strong>Beds:</strong>
+  <%= @property.beds %>
+</p>
+
+<p>
+  <strong>Baths:</strong>
+  <%= @property.baths %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
+  <strong>Approval:</strong>
+  <%= @property.approval_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @property.description %>
+</p>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>

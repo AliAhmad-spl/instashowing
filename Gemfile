@@ -11,6 +11,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
+gem 'carrierwave'
+gem 'stripe'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -33,5 +35,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'cancancan', '~> 2.0'
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
-gem "paperclip"
+#gem "paperclip"
 gem 'sweetalert-rails'

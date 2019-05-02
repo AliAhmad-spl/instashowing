@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Properties</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Beds</th>
+      <th>Baths</th>
+      <th>Address</th>
+      <th>Approval type</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.properties.each do |property| %>
+      <tr>
+        <td><%=image_tag (property.picture_url), style:"width:140px;height:90px;" %></td>
+        <td><%= property.beds %></td>
+        <td><%= property.baths %></td>
+        <td><%= property.address %></td>
+         <td><%= property.approval_type %></td>
+        <td><%= property.description %></td>
+        <td><%= link_to 'Show', property,class:"btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_property_path(property),class:"btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', property, class:"btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property', new_property_path ,class:"btn btn-success"%>
