@@ -1,0 +1,12 @@
+<%= form_for @property ,action:"approval_type" ,controller:"properties" do |f| %>
+
+   <div class="field">
+    <%= f.radio_button :approval_type ,"Auto_approves" %>Auto Approves
+     <%= f.radio_button :approval_type ,"Agent_approves" %>Agent Approves
+      <%= f.radio_button :approval_type ,"Occupant_approves" %>Occupant approves
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

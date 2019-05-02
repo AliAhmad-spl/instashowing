@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :set_property, only: [:show, :edit, :update, :destroy,:approval_new]
   before_action :authenticate_user!
   # GET /properties
   def index
@@ -24,7 +24,7 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
 
     if @property.save
-      redirect_to @property, notice: 'Property was successfully created.'
+      redirect_to new_agent_path(property_id:@property.id), notice: 'Property was successfully created.'
     else
       render :new
     end
@@ -33,10 +33,16 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1
   def update
     if @property.update(property_params)
-      redirect_to @property, notice: 'Property was successfully updated.'
+      redirect_to properties_path, notice: 'Property was successfully updated.'
     else
       render :edit
     end
+  end
+  def approval_new
+  end
+  def approval_type
+    @property.update(property_params)
+    redirect_to properties_path
   end
 
   # DELETE /properties/1
