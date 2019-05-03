@@ -22,9 +22,12 @@ class PropertiesController < ApplicationController
   # POST /properties
   def create
     @property = Property.new(property_params)
-
+    @agent123 = Agent.new
     if @property.save
-      redirect_to new_agent_path(property_id:@property.id), notice: 'Property was successfully created.'
+      respond_to do |format|
+        format.html { redirect_to new_agent_path(property_id:@property.id), notice: 'Property was successfully created.' }
+        format.js
+      end
     else
       render :new
     end

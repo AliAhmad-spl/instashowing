@@ -1,0 +1,2 @@
+$("#agent").hide();
+$("#approval").prepend("<%= j (render(:partial => 'properties/approval', :locals => {:@property => @property}))%>")

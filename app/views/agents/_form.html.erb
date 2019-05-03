@@ -1,4 +1,4 @@
-<%= form_with(model: agent, local: true) do |form| %>
+<%= form_with(model: agent, remote: true) do |form| %>
   <% if agent.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :picture %>
-    <%= form.file_field :picture %>
+    <%= form.file_field :picture ,required: true%>
   </div>
 
   <div class="field">
@@ -32,10 +32,10 @@
   </div>
   <div class="field">
     
-    <%= form.hidden_field :property_id, value:params[:property_id] %>
+    <%= form.hidden_field :property_id, value: property_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit("Next",class:"btn btn-primary")%>
   </div>
 <% end %>

@@ -1,4 +1,6 @@
-<%= form_with(model: property, local: true) do |form| %>
+<div id="property">
+
+<%= form_with(model: property ,remote: true) do |form| %>
   <% if property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -13,7 +15,7 @@
 
   <div class="field">
     <%= form.label :picture %>
-    <%= form.file_field :picture %>
+    <%= form.file_field :picture ,required: true %>
   </div>
 
   <div class="field">
@@ -39,6 +41,19 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit("Next",class:"btn btn-primary") %>
   </div>
 <% end %>
+</div>
+
+<div id="agent">
+  
+
+</div>
+
+
+
+<div id="approval">
+  
+
+</div>

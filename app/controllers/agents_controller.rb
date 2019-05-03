@@ -23,9 +23,13 @@ class AgentsController < ApplicationController
   # POST /agents
   def create
     @agent = Agent.new(agent_params)
-
     if @agent.save
-      redirect_to approval_new_properties_path(id:@agent.property.id), notice: 'Agent was successfully created.'
+      @property = @agent.property
+        respond_to do |format|
+        format.html { redirect_to approval_new_properties_path(id:@agent.property.id), notice: 'Agent was successfully created.' }
+        format.js
+      end
+      
     else
       render :new
     end

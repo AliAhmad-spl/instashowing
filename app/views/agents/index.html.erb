@@ -20,8 +20,6 @@
         <td><%= agent.name %></td>
         <td><%= agent.email %></td>
         <td><%= agent.phone %></td>
-        <td><%= link_to 'Show', agent %></td>
-        <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
         <td><%= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -30,4 +28,3 @@
 
 <br>
 
-<%= link_to 'New Agent', new_agent_path %>

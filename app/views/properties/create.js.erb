@@ -1,0 +1,2 @@
+$("#property").hide();
+$("#agent").prepend("<%= j (render(:partial => 'agents/form', :locals => {:agent => @agent123,:property_id => @property.id}))%>")
