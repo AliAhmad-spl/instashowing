@@ -1,0 +1,31 @@
+<% property = Property.find(property_id)%>
+<%= form_tag(property.user,action:"create",controller:"agents", remote: true) do  %>
+
+  <div class="field">
+    <%= label :picture %>
+    <%= file_field_tag :picture ,required: true%>
+  </div>
+
+  <div class="field">
+    <%= label :name %>
+    <%= text_field_tag :name %>
+  </div>
+
+  <div class="field">
+    <%= label :email %>
+    <%= email_field_tag :email %>
+  </div>
+
+  <div class="field">
+    <%#= f.label :phone %>
+    <%#= f.number_field :phone %>
+  </div>
+  <div class="field">
+    
+    <%= hidden_field_tag :property_id, value: property_id %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag("Next",class:"btn btn-primary")%>
+  </div>
+<% end %>

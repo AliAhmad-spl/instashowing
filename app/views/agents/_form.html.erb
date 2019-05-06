@@ -1,41 +1,32 @@
-<%= form_with(model: agent, remote: true) do |form| %>
-  <% if agent.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
-
-      <ul>
-      <% agent.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% property = Property.find(property_id)%>
+<% agent = property.user%>
+<%= form_for agent, action:"create",controller:"agents", remote: true do |f| %>
 
   <div class="field">
-    <%= form.label :picture %>
-    <%= form.file_field :picture ,required: true%>
+    <%= f.label :picture %>
+    <%= f.file_field :picture ,required: true%>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
-    <%= form.label :phone %>
-    <%= form.number_field :phone %>
+    <%#= f.label :phone %>
+    <%#= f.number_field :phone %>
   </div>
   <div class="field">
     
-    <%= form.hidden_field :property_id, value: property_id %>
+    <%= f.hidden_field :property_id, value: property_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit("Next",class:"btn btn-primary")%>
+    <%= f.submit("Next",class:"btn btn-primary")%>
   </div>
 <% end %>
