@@ -1,6 +1,7 @@
-<% property = Property.find(property_id)%>
-<% agent = property.user%>
-<%= form_for agent, action:"create",controller:"agents", remote: true do |f| %>
+
+
+<div class="form">
+<%= form_for agent ,remote: true do |f| %>
 
   <div class="field">
     <%= f.label :picture %>
@@ -9,17 +10,17 @@
 
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name,value:current_user.name %>
   </div>
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email,value:current_user.email %>
   </div>
 
   <div class="field">
-    <%#= f.label :phone %>
-    <%#= f.number_field :phone %>
+    <%= f.label :phone %>
+    <%= f.number_field :phone %>
   </div>
   <div class="field">
     
@@ -30,3 +31,4 @@
     <%= f.submit("Next",class:"btn btn-primary")%>
   </div>
 <% end %>
+</div>

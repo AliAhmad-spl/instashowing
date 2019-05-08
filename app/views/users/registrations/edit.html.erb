@@ -36,7 +36,7 @@
                             <h3 class="text-center">Profile</h3>
                             <div class="profile-change-icon">
                               <label for="file-input">
-                                  <img id="blah" src="/avatar.png" alt="your image", class="img-fluid setting-profile-image" />
+                                  <img id="blah" src="<%= current_user.profile_pic_url%>" alt="your image", class="img-fluid setting-profile-image" />
                                  
                                   <%= f.file_field :profile_pic,id: "file-input",class: 'imgInp d-none' %>
                                   <span class="middle text-center"><i class="fas fa-camera"></i></span>

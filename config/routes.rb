@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :charges do
+     collection do
+        get :details
+      end
+  end
   resources :agents
   resources :properties do
       collection do

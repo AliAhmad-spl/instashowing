@@ -128,3 +128,7 @@ img#blah:hover {
 .profile-descriptin {
   border-bottom: 1px solid #dadfe2;
 }
+.d-non
+{
+  display:none;
+}

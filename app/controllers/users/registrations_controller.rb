@@ -10,9 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:admin,:phone_number,:gender,:profile_pic])
+     super
+   end
 
   # GET /resource/edit
   # def edit
@@ -20,9 +21,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+        devise_parameter_sanitizer.permit(:account_update, keys: [:name,:admin,:phone_number,:gender,:profile_pic])
+     super
+   end
 
   # DELETE /resource
   # def destroy
@@ -47,7 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name,:admin,:phone_number,:gender,:profile_pic])
+
   end
   
   def update_resource(resource, params)

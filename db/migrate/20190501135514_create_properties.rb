@@ -4,6 +4,7 @@ class CreateProperties < ActiveRecord::Migration[5.2]
       t.string :picture
       t.integer :beds
       t.integer :baths
+      t.integer :status ,default: 1
       t.string :address
       t.integer :approval_type , default: 0
       t.text :description

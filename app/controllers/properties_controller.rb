@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy,:approval_new]
-  before_action :authenticate_user!
+  before_action :authenticate_user! ,except: [:show]
   # GET /properties
   def index
     @properties = Property.all
@@ -8,6 +8,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1
   def show
+     @property = Property.friendly.find(params[:id])
   end
 
   # GET /properties/new
@@ -35,8 +36,9 @@ class PropertiesController < ApplicationController
 
   # PATCH/PUT /properties/1
   def update
+
     if @property.update(property_params)
-      redirect_to properties_path, notice: 'Property was successfully updated.'
+      redirect_to controller: 'charges', action: 'details', id:@property.id, notice: 'Property was successfully updated.'
     else
       render :edit
     end
@@ -57,9 +59,8 @@ class PropertiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_property
-      @property = Property.find(params[:id])
+      @property = Property.friendly.find(params[:id])
     end
-
     # Only allow a trusted parameter "white list" through.
     def property_params
       params.require(:property).permit(:picture, :beds, :baths, :address, :description,:approval_type,:user_id)
