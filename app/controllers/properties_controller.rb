@@ -63,6 +63,6 @@ class PropertiesController < ApplicationController
     end
     # Only allow a trusted parameter "white list" through.
     def property_params
-      params.require(:property).permit(:picture, :beds, :baths, :address, :description,:approval_type,:user_id)
+      params.require(:property).permit(:picture, :beds, :baths, :address, :description,:approval_type,:user_id,:stripe_id)
     end
 end
