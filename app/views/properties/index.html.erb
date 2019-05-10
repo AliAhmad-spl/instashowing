@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Picture</th>
+      <th>name</th>
       <th>Beds</th>
       <th>Baths</th>
       <th>Address</th>
@@ -20,8 +21,11 @@
     <% current_user.properties.each do |property| %>
       <tr>
         <td>
-        <%=image_tag (property.picture_url),style:"width:140px;height:90px;" %>
+          <% property.pictures.each do |pic|%>
+        <%= image_tag (pic.url),style:"width:140px;height:90px;"  if property.pictures.present?%>
+        <%end%>
         </td>
+        <td><%= property.name %></td>
         <td><%= property.beds %></td>
         <td><%= property.baths %></td>
         <td><%= property.address %></td>

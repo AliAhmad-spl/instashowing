@@ -1,7 +1,8 @@
 class CreateProperties < ActiveRecord::Migration[5.2]
   def change
     create_table :properties do |t|
-      t.string :picture
+      t.string  :pictures
+      t.string  :name
       t.integer :beds
       t.integer :baths
       t.integer :status ,default: 1

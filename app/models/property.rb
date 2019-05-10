@@ -2,7 +2,8 @@ class Property < ApplicationRecord
 	belongs_to :user
 	has_many :agents
 	enum approval_type: [:Auto_approves, :Agent_approves, :Occupant_approves]
-	mount_uploader :picture, PictureUploader
+	mount_uploaders :pictures, PictureUploader
+	serialize :pictures, JSON
 	enum status: [:Live, :pending]
 	extend FriendlyId
 	friendly_id :generated_slug, use: :slugged
