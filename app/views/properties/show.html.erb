@@ -1,6 +1,5 @@
+<div class="container-fluid bg-light">
 <div class="demo-gallery">
-
-
 <div id="lightgallery" class="row">
     <div class="col-6">
         <div class="row height-image">
@@ -26,47 +25,71 @@
     </div>
 </div>
 </div>
-
-
 <p id="notice"><%= notice %></p>
+<div class="container py-3">
+<div class="row">
+  <div class="col-md-8">
+    <h1><%= @property.name %></h1>
+    <div class="row my-3">
+      <div class="col-sm-3 text-center">
+        <div class="bed-show">
+          <i class="fas fa-bed font-30"></i>
 
-<p>
-  <strong>Picture:</strong>
-     <% @property.pictures.each do |pic|%>
-        <%= image_tag (pic.url),style:"width:140px;height:90px;"  if @property.pictures.present?%>
-        <%end%>
-</p>
+          <h4 class="mt-1">Bed Room</h4>
+          <hr class="my-2">
+          <%= @property.beds %> signle bed
+        </div>
+      </div>
+      <div class="col-sm-3 text-center">
+        <div class="bed-show">
+        <i class="fas fa-bath font-30"></i>
 
-<p>
-  <strong>Beds:</strong>
-  <%= @property.beds %>
-</p>
-
-<p>
-  <strong>Baths:</strong>
-  <%= @property.baths %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
-  <strong>Approval:</strong>
-  <%= @property.approval_type %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @property.description %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+          <h4 class="mt-1">Bath</h4>
+          <hr class="my-2">
+          <%= @property.baths %> Baths
+        </div>
+      </div>
+      <div class="col-sm-3 text-center">
+        <div class="bed-show">
+        <i class="fas fa-map-marker-alt font-30"></i>
 
 
+          <h4 class="mt-1">Location</h4>
+          <hr class="my-2">
+            <%= @property.address.truncate(17) %>
+        </div>
+      </div>
+      <div class="col-sm-3 text-center">
+        <div class="bed-show">
+
+        <i class="far fa-check-circle font-30"></i>
+
+          <h4 class="mt-1">Approval</h4>
+          <hr class="my-2">
+          <%= @property.approval_type.humanize %>
+        </div>
+      </div>
+
+    </div>
+    <h3 class="mb-2 mt-3">Description</h3>
+      <%= @property.description %>
+  </div>
+  <div class="col-md-4 mt-5">
+    <div class="left-sidebar">
+      <h3 class="text-center">Want to see this property?</h3>
+      <p class="text-center"> Schedule a visit now</p>
+      <a href="#" class="btn btn-primary btn-block">Book Now</a>
+    </div>
+  </div>
+
+</div>
 
 
+</div>
 
+</div>
+<%#= link_to 'Edit', edit_property_path(@property) %>
+<%#= link_to 'Back', properties_path %>
 
 
 

@@ -1,10 +1,35 @@
+<h4 class="text-center mb-3">Select Approvel Type</h4>
 <%= form_for @property ,action:"approval_type" ,controller:"properties" do |f| %>
-
-   <div class="form-group mt-3">
-    <%= f.radio_button :approval_type ,"Auto_approves" %>Auto Approves
-     <%= f.radio_button :approval_type ,"Agent_approves" %>Agent Approves
-      <%= f.radio_button :approval_type ,"Occupant_approves" %>Occupant approves
+<div class="row">
+  <div class="col-md-4">
+    <label class="label-w">
+    <%= f.radio_button :approval_type ,"Auto_approves" %>
+    <div class="approval-box">
+      <i class="fas fa-robot font-30"></i><br />
+      Auto Approves
+    </div>
+    </label>
   </div>
+  <div class="col-md-4">
+    <label class="label-w">
+    <%= f.radio_button :approval_type ,"Agent_approves" %>
+    <div class="approval-box">
+      <i class="fas fa-user-check font-30"></i><br />
+      Agent Approves
+    </div>
+    </label>
+  </div>
+  <div class="col-md-4">
+    <label class="label-w">
+      <%= f.radio_button :approval_type ,"Occupant_approves" %>
+    <div class="approval-box">
+      <i class="fas fa-hand-pointer font-30"></i><br />
+    Occupant approves
+    </div>
+    </label>
+  </div>
+</div>
+
 
   <div class="actions mt-3">
     <%= f.submit("Save",class:"btn btn-primary float-right") %>
