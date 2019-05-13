@@ -71,18 +71,18 @@ b {
 .setting-headig {
   background: #f1f4f5;
 }
-.setting-links ul a li {
+.setting-links ul li a  {
     border-bottom: 1px solid #dadfe2;
     line-height: 14px;
 
 
 }
-a.active li {
+li a.active  {
     border-left: 2px solid #499df3 !important;
     text-decoration: none !important;
     color: #2388ed !important;
 }
-.setting-links ul a li  {
+.setting-links ul li a   {
     color: #969ea2;
     padding: 15px 10px;
     display: inline-block;
@@ -229,27 +229,30 @@ img#blah:hover {
 /* step form */
 
 .step {
-  height: 40px;
-  width: 40px;
-  margin: 0 2px;
-  border: 2px solid #bbbbbb !important;
-  border: none;
-  border-radius: 50%;
+  /* height: 40px; */
+  width: 30%;
+  /* margin: 0 2px; */
+  /* border: 2px solid #bbbbbb !important; */
+  /* border: none; */
+  /* border-radius: 50%; */
   display: inline-block;
   padding-top: 8px;
+  border-bottom: 2px solid #dddd !important;
 }
 
 .step.active {
-  background-color: #3faff0;
-  border: 2px solid #3faff0 !important;
-  color: #fff;
+  /* background-color: #3faff0; */
+  border-bottom: 2px solid #3faff0 !important;
+  /* color: #fff; */
 }
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: #4CAF50;
-  border: 2px solid #4CAF50 !important;
-  color: #fff;
+    border-bottom: 2px solid #3faff0 !important;
+}
+.font-18 {
+  font-size: 18px;
+  font-weight: bold;
 }
 .stripe {
   max-width: 300px;
@@ -276,4 +279,46 @@ img#blah:hover {
     border: 1px solid #000;
     background-size: cover !important;
     background-repeat: no-repeat !important;
+}
+.bed-show {
+  border: 1px solid #EBEBEB !important;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+.font-30 {
+  font-size: 30px;
+}
+.left-sidebar {
+  border: 1px solid #e4e4e4 !important;
+    background-color: #ffffff !important;
+    padding: 20px 24px;
+    margin-top: 13px;
+}
+.approval-box {
+  background: #3faff0;
+  padding: 10px 5px;
+  color: #fff;
+  /* border-radius: 5px; */
+  text-align: center;
+      font-weight: 800;
+}
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + .approval-box  {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + .approval-box {
+  outline: 2px solid green;
+
+}
+.label-w {
+  width: 100%;
 }

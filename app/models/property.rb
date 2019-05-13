@@ -8,6 +8,6 @@ class Property < ApplicationRecord
 	extend FriendlyId
 	friendly_id :generated_slug, use: :slugged
 	def generated_slug
-		@random_slug ||= persisted? ? friendly_id : ('a'..'z').to_a.shuffle[0,5].join + (1..9).to_a.shuffle[0,7].join 
+		@random_slug ||= persisted? ? friendly_id : ('a'..'z').to_a.shuffle[0,5].join + (1..9).to_a.shuffle[0,7].join
 	end
 end

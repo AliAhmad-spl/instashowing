@@ -35,7 +35,7 @@
           </div>
           <div class="col-6 text-center">
             <p class="font-weight-bold mb-0">Approval Type</p>
-            <p><%= link_to property.approval_type, approval_new_properties_path(id:property.id),class:"" %></p>
+            <p><%= link_to property.approval_type.humanize, approval_new_properties_path(id:property.id),class:"" %></p>
           </div>
         </div>
       </div>
@@ -43,13 +43,13 @@
       <div class="propert-name">
         <div class="row">
           <div class="col-3 text-center">
-            <%= link_to 'Show', property,class:"btn btn-primary" %>
+            <%= link_to 'Show', property,class:"btn btn-primary radius-5" %>
           </div>
           <div class="col-3 text-center">
-            <%= link_to 'Edit', edit_property_path(property),class:"btn btn-primary" %>
+            <%= link_to 'Edit', edit_property_path(property),class:"btn btn-primary radius-5" %>
           </div>
           <div class="col-3 text-center">
-            <%= link_to 'Destroy', property, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', property, class:"btn btn-danger radius-5", method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
           <div class="col-3">
             <%= form_tag charges_path do %>
@@ -58,7 +58,7 @@
                 <p><%= flash[:error] %></p>
               <% end %>
             </div>
-              <%= hidden_field_tag(:property,property.id)%>
+              <%= hidden_field_tag(:property,property.id) %>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="Subscription"
@@ -71,6 +71,8 @@
           </div>
         </div>
       </div>
+
+
 
       </div>
     </div>

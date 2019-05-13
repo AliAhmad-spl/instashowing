@@ -3,13 +3,20 @@
 <div class="col-md-8 mx-auto">
   <div class="card mt-3">
     <div class="card-body">
-      <div class="text-center">
-        <span class="step">1</span>
-        <span class="step">2</span>
-        <span class="step">3</span>
-        <span class="badge_step">1/3</span>
+        <div class="row mb-3">
+          <div class="col-11">
+            <div class="progress">
+              <div class="progress-bar" style="width:33.33%"></div>
+            </div>
+          </div>
+          <div class="col-1 text-right font-18">
+            <span class="badge_step">1/3</span>
+          </div>
+        </div>
+<!-- <h4 class="text-center mb-2">New Property Details</h4> -->
 
-      </div>
+
+
 <%= render 'form', property: @property %>
 <%= link_to 'Back', properties_path %>
 </div>
