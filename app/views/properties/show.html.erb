@@ -1,3 +1,33 @@
+<div class="demo-gallery">
+
+
+<div id="lightgallery" class="row">
+    <div class="col-6">
+        <div class="row height-image">
+            <div class="col-12 background-image background-image-0">
+                <img class="d-none">
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <% @property.pictures.each_with_index do |i,ind|%>
+                <% if ind != 0 %>
+                <div class="col-6">
+                     <div class="row height-image-half">
+                        <div class="col-12 background-image background-image-<%= ind %>">
+                            <img class="d-none">
+                        </div>
+                    </div>
+                </div>
+                <% end%>
+            <% end%>
+        </div>
+    </div>
+</div>
+</div>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -32,3 +62,41 @@
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
+
+
+
+
+
+
+
+
+ <script>
+
+      $('#lightgallery').lightGallery();
+
+  $('.background-image').each(function(index){
+    $(this).hover(function(){
+         $('.background-image').css('opacity','0.5');
+         $('#lightgallery .row').css('overflow','hidden');
+         $('.background-image').css('transform','scale(1)');
+         $(this).css('opacity','1');
+         $(this).css('transform','scale(1.1)');
+         $(this).css('z-index','1');
+    });
+    $('#lightgallery').mouseout(function(){
+       $('.background-image').css('opacity','1');
+       $('.background-image').css('transform','scale(1)');
+    });
+    $(this).addClass('background-image-' + index);
+    if(index > 4){
+     $(this).closest('.col-6').hide();
+    }
+  });
+<% @property.pictures.each_with_index do |i,ind|%>
+    $('.background-image-'+ <%= ind %>).css('background','url(<%= i.url%>)');
+    $('.background-image-'+ <%= ind %>).attr('data-src','<%= i.url%>');
+    $('.background-image-'+ <%= ind %>).attr('data-responsive','<%= i.url%>');
+    $('.background-image-'+ <%= ind  %>+ ' img').attr('src','<%= i.url%>');
+<% end %>
+
+</script>

@@ -10,7 +10,7 @@
 <% current_user.properties.each do |property| %>
     <div class="col-md-4 mb-3">
       <div class="propert-box">
-        <div class="property" style="background-image: url(<%= property.picture_url %>)">
+        <div class="property" style="background-image: url(<%= property.pictures[0].url %>)">
           <div class="listing-badges">
           <span class="featured">
             <%= property.status %>
@@ -58,7 +58,7 @@
                 <p><%= flash[:error] %></p>
               <% end %>
             </div>
-              <%= hidden_field_tag(:property,property.id) %>
+              <%= hidden_field_tag(:property,property.id)%>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="Subscription"

@@ -266,3 +266,14 @@ img#blah:hover {
 .radius-5 {
   border-radius: 5px;
 }
+.height-image{
+    height: 300px !important;
+}
+.height-image-half{
+    height: 150px !important;
+}
+.background-image{
+    border: 1px solid #000;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
