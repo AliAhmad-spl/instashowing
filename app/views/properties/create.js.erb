@@ -1,2 +1,6 @@
 $("#property").hide();
+$('.step').eq(1).addClass('active');
+$('.step').eq(0).removeClass('active');
+$('.step').eq(0).addClass('finish');
+$('.badge_step').text('2/3');
 $("#agent").prepend("<%= j (render(:partial => 'agents/form', :locals => {:agent => @agent123,:property_id => @property.id}))%>")

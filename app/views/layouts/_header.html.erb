@@ -1,27 +1,30 @@
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark">
   <div class="container">
-  <a class="navbar-brand" href="<%= root_path %>"><h2 class="text-primary">Instashowing</h2></a>
+  <a class="navbar-brand" href="<%= root_path %>"><img src="/logo.png" /></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button> 
+  </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="<%= root_path %>"><i class="fas fa-home"></i> Home<span class="sr-only">(current)</span></a>
+              <li class="nav-item active menu">
+                <a class="nav-link menu" href="<%= root_path %>"> Home<span class="sr-only">(current)</span></a>
               </li>
-      
+
         <% if !user_signed_in? %>
-           <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal"><i class="fas fa-sign-in-alt"></i> Sign in</a>
-          </li> 
-           <li class="nav-item">
-              <a class="nav-link" href="<%= new_user_registration_path%>" data-toggle="modal" data-target="#signupModal"><i class="fas fa-user-plus"></i> Sign Up</a>
-          </li> 
+           <li class="nav-item menu">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal"> Sign in</a>
+          </li>
+           <li class="nav-item menu">
+              <a class="nav-link" href="<%= new_user_registration_path%>" data-toggle="modal" data-target="#signupModal"> Sign Up</a>
+          </li>
         <% else %>
-      
+        <li class="nav-item menu">
+          <a class="nav-link" href="/properties">Properties</a>
+        </li>
+
              <div class="dropdown">
                <li class="nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <i class="fas fa-user"></i> <%= current_user.name%></a>
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <%= current_user.name%></a>
                 <div class="dropdown-menu bg-light">
                   <a class="dropdown-item" href="<%= edit_user_path(current_user) %>">Profile</a>
                   <a class="dropdown-item" href="<%= edit_user_registration_path %>">Settings</a>
@@ -30,19 +33,19 @@
                 </div>
                 </li>
               </div>
-          
+
           <% if current_user.admin %>
-            <li class="nav-item">
+            <li class="nav-item menu">
               <a class="nav-link" href="<%= admin_panel_path %>">Admin Dashboard</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item menu">
               <a class="nav-link" href="<%= destroy_user_session_path %>" data-method="delete">Log Out</a>
             </li>
           <% end %>
-          
+
         <% end %>
       </ul>
-      
+
     </div>
 </div>
 </nav>
@@ -56,7 +59,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title text-center" id="exampleModalLabel">Login to Instashowing</h4>
-        
+
       </div>
       <div class="modal-body modal-login-body">
         <%= form_for(:user, :url => session_path(:user)) do |f| %>
@@ -129,7 +132,7 @@
             </div>
         </div>
       </div>
-      
+
       <div class="modal-footer d-block">
               <center>Already a member? <a href="#" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Login</a></center>
         <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->

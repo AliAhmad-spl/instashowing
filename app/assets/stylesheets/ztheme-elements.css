@@ -1220,10 +1220,11 @@ html.ie .nav-secondary.nav-secondary-style-2 {
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 	font-size: 14px;
-	font-family: SystemPlusFont !important;
+	font-family: "Heebo", sans-serif;
 	cursor: pointer;
 	-webkit-transition: all 0.1s;
 	transition: all 0.1s;
+	font-weight: bold;
 }
 
 /* Buttons Sizes */

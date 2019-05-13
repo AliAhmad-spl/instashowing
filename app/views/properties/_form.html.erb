@@ -1,59 +1,69 @@
 <div id="property">
+      <%= form_with(model: property ,remote: true) do |form| %>
+        <% if property.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+            <ul>
+            <% property.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :picture %>
+          <%= form.file_field :picture, required: true, class: 'form-control' %>
+        </div>
 
-<%= form_with(model: property ,remote: true) do |form| %>
-  <% if property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+        <div class="form-group">
+          <%= form.label :beds %>
+          <%= form.number_field :beds, class: 'form-control' %>
+        </div>
 
-      <ul>
-      <% property.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <div class="form-group">
+          <%= form.label :baths %>
+          <%= form.number_field :baths, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :address %>
+          <%= form.text_field :address, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_area :description, class: 'form-control' %>
+        </div>
+         <div class="field">
+          <%= form.hidden_field :user_id ,value:current_user.id %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit("Next",class:"btn btn-primary float-right") %>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+      </div>
+      <div id="agent">
+      </div>
+      <div id="approval">
+      </div>
 
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.file_field :picture ,required: true %>
-  </div>
 
-  <div class="field">
-    <%= form.label :beds %>
-    <%= form.number_field :beds %>
-  </div>
-
-  <div class="field">
-    <%= form.label :baths %>
-    <%= form.number_field :baths %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-   <div class="field">
-    <%= form.hidden_field :user_id ,value:current_user.id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit("Next",class:"btn btn-primary") %>
-  </div>
-<% end %>
-</div>
-
-<div id="agent">
-  
-
-</div>
+<script>
+  $('.step').eq(0).addClass('active');
+</script>
 
 
 
-<div id="approval">
-  
 
-</div>
+
+
+
+
+
+
+
+<!-- multi step -->

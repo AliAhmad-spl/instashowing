@@ -1,2 +1,6 @@
 $("#agent").hide();
+$('.step').eq(2).addClass('active');
+$('.step').eq(1).removeClass('active');
+$('.step').eq(1).addClass('finish');
+$('.badge_step').text('3/3');
 $("#approval").prepend("<%= j (render(:partial => 'properties/approval', :locals => {:@property => @property}))%>")

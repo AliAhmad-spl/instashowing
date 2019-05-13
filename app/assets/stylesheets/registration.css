@@ -8,10 +8,12 @@
 }
 .loginmodal-fb a, .loginmodal-fb a:focus, .loginmodal-fb a:active, .loginmodal-fb a:hover {
     color: #fff  !important;
-    
+
 }
 a.nav-link {
-    color: #0062cc !important;
+    color: #3dabed !important;
+    font-size: 16px;
+    font-weight: 500;
 }
 .loginmodal-fb::before {
     padding-right: 20%;

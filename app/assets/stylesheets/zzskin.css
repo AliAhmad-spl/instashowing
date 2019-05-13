@@ -9,7 +9,7 @@ a:not(.no-skin):not(.btn):not(.badge):not(.nav-link):focus.link-underline {
 }
 html .text-color-primary:not(.no-skin),
 html .text-primary:not(.no-skin) {
-  color: #2388ed !important;
+  color: #3faff1 !important;
 }
 html .text-color-secondary:not(.no-skin),
 html .text-secondary:not(.no-skin) {
@@ -51,7 +51,7 @@ html .bg-primary:not(.no-skin) {
   background-color: #2388ed !important;
 }
 html .bg-primary-6:not(.no-skin) {
-  background-color: #52a1f1 !important;
+  background-color: #3faff1 !important;
 }
 html .bg-primary-7:not(.no-skin) {
   background-color: #81bbf5 !important;
@@ -166,7 +166,7 @@ html.sticky-header-active .btn-sticky-primary:hover,
 html .btn-primary:focus,
 html.sticky-header-active .btn-sticky-primary:focus {
   border-color: transparent;
-  background-color: #52a1f1 !important;
+  background-color: #3faff1 !important;
   color: #ffffff;
 }
 html .btn-primary:focus,
@@ -202,8 +202,8 @@ html.sticky-header-active .btn-sticky-primary:not([disabled]):not(.disabled):act
   border-color: transparent;
   color: #ffffff;
   background-color: linear-gradient(135deg,#2388ed,#0e83cd) !important;
-  -webkit-box-shadow: 0 0 0 0.2rem #52a1f1;
-          box-shadow: 0 0 0 0.2rem #52a1f1;
+  -webkit-box-shadow: 0 0 0 0.2rem #3faff1;
+          box-shadow: 0 0 0 0.2rem #3faff1;
 }
 html .btn-secondary,
 html.sticky-header-active .btn-sticky-secondary {
@@ -516,7 +516,7 @@ html.sticky-header-active .btn-outline.btn-sticky-quaternary.disabled:focus {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #52a1f1;
+  color: #3faff1;
 }
 .btn-link:disabled,
 .btn-link.disabled,
@@ -533,7 +533,7 @@ html .btn-link.btn-primary {
 }
 html .btn-link.btn-primary:hover,
 html .btn-link.btn-primary:focus {
-  color: #52a1f1;
+  color: #3faff1;
 }
 html .btn-link.btn-primary:disabled,
 html .btn-link.btn-primary.disabled,

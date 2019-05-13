@@ -14,11 +14,11 @@
  *= require_tree .
  *= require_self
  */
- 
+
 @font-face {
-  font-family: SystemPlusFont;
-  src: url('Gotham.otf') format('opentype'); 
-    
+  font-family: "Heebo", sans-serif;
+  src: url('Heebo-Regular.ttf') format('opentype');
+
 }
 body,
 p,
@@ -43,7 +43,12 @@ fieldset,
 font,
 strong,
 b {
-  font-family: SystemPlusFont !important; }
+  font-family: "Heebo", sans-serif !important; }
+.menu {
+  text-transform: uppercase !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
 
 .container-main{
   background: #eee !important;
@@ -69,8 +74,8 @@ b {
 .setting-links ul a li {
     border-bottom: 1px solid #dadfe2;
     line-height: 14px;
-   
-   
+
+
 }
 a.active li {
     border-left: 2px solid #499df3 !important;
@@ -82,14 +87,14 @@ a.active li {
     padding: 15px 10px;
     display: inline-block;
     width: 100%;
-    
+
 }
 .setting-profile-image {
   border-radius: 50%;
   display: block;
   backface-visibility: hidden;
   opacity: 1;
- 
+
 }
 .setting-profile-image:hover {
   opacity: 0.1;
@@ -117,7 +122,7 @@ img#blah:hover {
 }
 .profile-change-icon:hover .middle{
   opacity: 1 !important;
-  
+
 }
 .profile-show-image {
   width: 150px;
@@ -131,4 +136,133 @@ img#blah:hover {
 .d-non
 {
   display:none;
+}
+.home-banner {
+  background-image: url('/banner-1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+.overlay-home {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 30vh;
+  padding-bottom: 30vh;
+}
+.search-btn {
+  padding-top: 13px;
+  padding-bottom: 12px;
+}
+.service-info {
+    padding: 20px;
+    margin: 0 auto 30px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.font-35 {
+  font-size: 35px;
+}
+.property {
+  height: 250px;
+  /* background-image: url('/properties-6.jpg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+      position: relative;
+}
+.propert-box {
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1)
+}
+
+.listing-badges {
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    right: 0;
+    width: 100%;
+    display: block;
+    font-size: 15px;
+    padding: 0;
+    overflow: hidden;
+    height: 100px;
+}
+ span.featured {
+    background-color: #f2494e !important;
+}
+.listing-badges .featured {
+    float: left;
+    transform: rotate(-45deg);
+    left: -67px;
+    top: 17px;
+    position: relative;
+    text-align: center;
+    width: 200px;
+    font-size: 12px;
+    margin: 0;
+    padding: 7px 10px;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(2, 0, 0, .2);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.property-overlay {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%);
+  width: 100%;
+  padding: 30px 10px;
+  text-align: right;
+}
+.font-25 {
+  font-size: 25px;
+}
+.propert-name {
+  background-color: #fff;
+  height: 65px;
+  padding: 12px 15px;
+}
+.property-spec {
+  height: 75px;
+  padding: 10px 15px;
+}
+
+/* step form */
+
+.step {
+  height: 40px;
+  width: 40px;
+  margin: 0 2px;
+  border: 2px solid #bbbbbb !important;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  padding-top: 8px;
+}
+
+.step.active {
+  background-color: #3faff0;
+  border: 2px solid #3faff0 !important;
+  color: #fff;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+  border: 2px solid #4CAF50 !important;
+  color: #fff;
+}
+.stripe {
+  max-width: 300px;
+  border: 1px solid #e1e1e1e1;
+  border-radius: 5px;
+  padding: 15px 20px;
+  margin: 0 auto;
+  background: #fff;
+
+}
+.stripe-button-el {
+  width: 100%;
+}
+.radius-5 {
+  border-radius: 5px;
 }

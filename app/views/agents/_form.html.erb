@@ -1,29 +1,30 @@
 
 
+
 <div class="form">
 <%= form_for agent ,remote: true do |f| %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :picture %>
-    <%= f.file_field :picture ,required: true%>
+    <%= f.file_field :picture , class: 'form-control'%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name,value:current_user.name %>
+    <%= f.text_field :name,value:current_user.name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email,value:current_user.email %>
+    <%= f.email_field :email,value:current_user.email, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :phone %>
-    <%= f.number_field :phone %>
+    <%= f.number_field :phone, class: 'form-control' %>
   </div>
   <div class="field">
-    
+
     <%= f.hidden_field :property_id, value: property_id %>
   </div>
 

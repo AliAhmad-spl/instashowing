@@ -1,59 +1,80 @@
 <p id="notice"><%= notice %></p>
+<div class="container pt-3 pb-5">
 
-<h1>Properties</h1>
+  <h1 class="text-center">Properties</h1>
+  <div class="text-right mb-3">
+    <%= link_to 'New Property', new_property_path ,class:"btn btn-primary"%>
+  </div>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Picture</th>
-      <th>Beds</th>
-      <th>Baths</th>
-      <th>Address</th>
-      <th>Approval type</th>
-      <th>Status</th>
-      <th>Description</th>
-      <th>Actions</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% current_user.properties.each do |property| %>
-      <tr>
-        <td><%=image_tag (property.picture_url), style:"width:140px;height:90px;" %></td>
-        <td><%= property.beds %></td>
-        <td><%= property.baths %></td>
-        <td><%= property.address %></td>
-        <td><%= link_to property.approval_type, approval_new_properties_path(id:property.id),class:"btn btn-warning" %></td>
-       <td><%= link_to property.status,"#",class:"btn btn-warning" %></td>
-        <td><%= property.description %></td>
-        <td><%= link_to 'Show', property,class:"btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_property_path(property),class:"btn btn-primary" %></td>
-      <% if property.status == "pending"%>
-        <td>
-          <%= form_tag charges_path do %>
-          <div id="error_explanation">
-            <% if flash[:error].present? %>
-              <p><%= flash[:error] %></p>
-            <% end %>
+  <div class="row">
+<% current_user.properties.each do |property| %>
+    <div class="col-md-4 mb-3">
+      <div class="propert-box">
+        <div class="property" style="background-image: url(<%= property.picture_url %>)">
+          <div class="listing-badges">
+          <span class="featured">
+            <%= property.status %>
+          </span>
           </div>
-            <%= hidden_field_tag(:property,property.id) %>
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description="Subscription"
-            data-amount="500.00"
-            data-locale="auto">
-            </script>
-            <% end %>       
-       </td>
-      <%end%>
-        <td><%= link_to 'Agents', agents_path(property:property.id),class:"btn btn-primary" %></td>
-        <td><%= link_to 'Destroy', property, class:"btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <div class="property-overlay"></div>
+        </div>
+        <div class="propert-name">
+          <h4 class="text-primary mb-0"><%= property.name %></h4>
+          <i class="fas fa-map-marker-alt"></i> <%= property.address %>
+        </div>
+        <div class="property-spec">
+        <div class="row">
+          <div class="col-3 text-center">
+            <p class="font-weight-bold mb-0">Beds</p>
+            <p><%= property.beds %></p>
 
-<br>
+          </div>
+          <div class="col-3 text-center">
+            <p class="font-weight-bold mb-0">Baths</p>
+            <p><%= property.baths %></p>
+          </div>
+          <div class="col-6 text-center">
+            <p class="font-weight-bold mb-0">Approval Type</p>
+            <p><%= link_to property.approval_type, approval_new_properties_path(id:property.id),class:"" %></p>
+          </div>
+        </div>
+      </div>
+        
+      <div class="propert-name">
+        <div class="row">
+          <div class="col-3 text-center">
+            <%= link_to 'Show', property,class:"btn btn-primary" %>
+          </div>
+          <div class="col-3 text-center">
+            <%= link_to 'Edit', edit_property_path(property),class:"btn btn-primary" %>
+          </div>
+          <div class="col-3 text-center">
+            <%= link_to 'Destroy', property, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+          <div class="col-3">
+            <%= form_tag charges_path do %>
+            <div id="error_explanation">
+              <% if flash[:error].present? %>
+                <p><%= flash[:error] %></p>
+              <% end %>
+            </div>
+              <%= hidden_field_tag(:property,property.id) %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Subscription"
+              data-amount="500.00"
+              data-locale="auto">
+              </script>
+              <% end %>
 
-<%= link_to 'New Property', new_property_path ,class:"btn btn-success"%>
+
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  <%end%>
+  </div>
+
+</div>
