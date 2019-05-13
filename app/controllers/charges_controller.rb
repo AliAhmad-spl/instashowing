@@ -17,6 +17,8 @@ class ChargesController < ApplicationController
 		)
 		Property.find(params[:property]).update(status:0)
 		@live = Property.find(params[:property].to_i)
+		 @live.update(stripe_id:charge.id)
+
 	  
 	end
 	def details

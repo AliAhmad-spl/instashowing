@@ -37,7 +37,8 @@ ActiveRecord::Schema.define(version: 2019_05_10_102852) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string "picture"
+    t.string "pictures"
+    t.string "name"
     t.integer "beds"
     t.integer "baths"
     t.integer "status", default: 1
@@ -48,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_05_10_102852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.string "name"
+    t.string "stripe_id"
     t.index ["slug"], name: "index_properties_on_slug", unique: true
   end
 

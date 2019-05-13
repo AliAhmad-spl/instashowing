@@ -2,7 +2,9 @@
 
 <p>
   <strong>Picture:</strong>
-  <%=image_tag (@property.picture_url), style:"width:140px;height:90px;" %></
+     <% @property.pictures.each do |pic|%>
+        <%= image_tag (pic.url),style:"width:140px;height:90px;"  if @property.pictures.present?%>
+        <%end%>
 </p>
 
 <p>
