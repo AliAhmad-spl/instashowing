@@ -49,9 +49,10 @@
             <%= link_to 'Edit', edit_property_path(property),class:"btn btn-primary" %>
           </div>
           <div class="col-3 text-center">
-            <%= link_to 'Destroy', property, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', property, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
           <div class="col-3">
+            <% if property.status == "pending"%>
             <%= form_tag charges_path do %>
             <div id="error_explanation">
               <% if flash[:error].present? %>
@@ -66,6 +67,9 @@
               data-locale="auto">
               </script>
               <% end %>
+              <%else%>
+               <%= link_to("Invoice", Stripe::Charge.retrieve(property.stripe_id).receipt_url, target: :_blank,class:"btn btn-warning" ) if property.stripe_id.present?  %>
+              <%end%>
 
 
           </div>

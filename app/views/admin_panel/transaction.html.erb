@@ -7,7 +7,7 @@
                         <h2 class="text-dark mt-1 text-center"> Admin </h2>
                         <div class="row">
                           <div class="col-12">
-                             <a class="btn btn-primary btn-block mt-1" href="#">Users</a>
+                             <a class="btn btn-primary btn-block mt-1" href="<%=admin_panel_path%>">Users</a>
                              <a class="btn btn-primary btn-block mt-1" href="#">Categories</a>
                              <a class="btn btn-primary btn-block mt-1" href="<%=admin_trans_path%>">Transactions</a>
                           </div>
@@ -44,22 +44,21 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                  <h3 class="mb-3">All User Details</h3>
+                  <h3 class="mb-3">All Transactions</h3>
                    <table class="table table-bordered">
                      <tr>
-                      <th>Name</th>
-                      <th>Email</th>
+                      <th>Property Name</th>
+                      <th>Agent name</th>
                       <th>Total paid</th>
-                      <th>Paid to</th>
                      </tr>
                      <%@users.each do|user|%>
                      <tr>
-                       <td><%=user.name%></td>
-                       <td><%=user&.email%></td>
                        <%user&.charges.each do |amount|%>
                        <% total = 0%>
+                       <td><%=amount.property.name%></td>
+                       <td><%=amount.property.agents.first.name%></td>
                        <td>$<%= total = total+amount.amount%></td>
-                       <td><%= amount.property.name%></td>
+                       
                        
                        <%end%>
                        

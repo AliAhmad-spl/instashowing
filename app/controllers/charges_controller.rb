@@ -18,6 +18,7 @@ class ChargesController < ApplicationController
 		Property.find(params[:property]).update(status:0)
 		@live = Property.find(params[:property].to_i)
 		 @live.update(stripe_id:charge.id)
+		 Charge.create(amount: 5, property_id:@live.id, user_id:current_user.id)
 
 	  
 	end
