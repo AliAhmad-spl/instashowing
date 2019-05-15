@@ -15,6 +15,13 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
   end
+  def back
+    @property = current_user.properties.last
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   # GET /properties/1/edit
   def edit

@@ -22,6 +22,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       ## Omniauthable
       t.string   :provider
       t.string   :uid
+      t.datetime :birthday
 
       ## Confirmable
       # t.string   :confirmation_token

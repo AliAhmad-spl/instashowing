@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       collection do
         get :approval_new
         get :approval_type
+        get :back
       end
   end
   resources :orders
