@@ -1,8 +1,8 @@
 if Rails.env.development?
   
   Rails.configuration.stripe = {
-    :publishable_key => Rails.application.secrets['PUBLISHABLE_KEY'],
-    :secret_key      => Rails.application.secrets['SECRET_KEY']
+    :publishable_key => Rails.application.secrets['stripe_secret_key'],
+    :secret_key      => Rails.application.secrets['stripe_publishable_key']
   
   }
   

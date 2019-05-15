@@ -2,4 +2,7 @@
   <p>Thank you  have paid $5 for to make property live!!</p>
   <p>Here will be the link and description for calendar	</p>
   <%= link_to  "http://localhost:3000/properties/"+@live.slug.to_s, property_path(@live.slug) %>
+  <% if Rails.env.production? %>
+    <%= link_to  "https://instashowing.herokuapp.com/properties/"+@live.slug.to_s, property_path(@live.slug) %>
+  <% end %>
 </div>
