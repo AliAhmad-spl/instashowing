@@ -52,13 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:admin,:phone_number,:gender,:profile_pic,:birthday])   
   end
   
-  def update_resource(resource, params)
-    if params.include?(:current_password)
-      resource.update.update_with_password(params)
-    else
-      resource.update_without_password(params)
-      end
-  end
+
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)

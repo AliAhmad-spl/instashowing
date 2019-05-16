@@ -22,7 +22,7 @@
   </div>
   <div class="field">
 
-    <%= f.hidden_field :property_id, value: property_id %>
+    <%= f.hidden_field :property_id, value: current_user.properties.last.id %>
   </div>
 
   <div class="actions">

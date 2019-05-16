@@ -33,9 +33,14 @@
             <p class="font-weight-bold mb-0">Baths</p>
             <p><%= property.baths %></p>
           </div>
-          <div class="col-6 text-center">
+          <!-- <div class="col-6 text-center">
             <p class="font-weight-bold mb-0">Approval Type</p>
             <p><%= link_to property.approval_type.humanize, approval_new_properties_path(id:property.id),class:"" %></p>
+          </div> -->
+          <div class="col-6 text-center">
+            <p class="font-weight-bold mb-0">Agent</p>
+           <%=image_tag (property&.agents&.last&.picture_url || "image"), style:" vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;" %>
+            <%= link_to property&.agents&.last&.name, agent_path(id:property&.agents&.last&.id) %>
           </div>
         </div>
       </div>
@@ -63,7 +68,7 @@
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="Subscription"
-              data-amount="500.00"
+              data-amount="1000.00"
               data-locale="auto">
               </script>
               <% end %>

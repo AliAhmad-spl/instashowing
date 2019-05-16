@@ -45,7 +45,12 @@ class PropertiesController < ApplicationController
   def update
 
     if @property.update(property_params)
-      redirect_to controller: 'charges', action: 'details', id:@property.id, notice: 'Property was successfully updated.'
+       @agent123 = Agent.new
+       respond_to do |format|
+        format.html { redirect_to details_charges_path(id:@property.slug), id:@property.id, notice: 'Property was successfully updated.' }
+        format.js
+      end
+      
     else
       render :edit
     end
