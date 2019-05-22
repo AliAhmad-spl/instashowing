@@ -1,29 +1,34 @@
+ 
+ 
+ <centre><%=image_tag (current_user.properties.last.agents.first.picture_url || "image"), style:" vertical-align: middle;width: 75px;height: 75px;border-radius: 50%;" %></centre><br>
+    Name:<%= current_user.properties.last.agents.first.name%><br>
+    Email:<%= current_user.properties.last.agents.first.email%><br>
+    Phone:N/A
 
 <div class="form">
   <% agent = Agent.new%>
 <%= form_for agent ,remote: true do |f| %>
-<h4 class="text-center mb-2">Agent Details</h4>
+
   <div class="form-group">
-    <%= f.label :picture %>
+    
     <%= f.hidden_field :picture , class: 'form-control' ,value:current_user&.profile_pic_url%>
-    <centre><%=image_tag (current_user&.profile_pic_url || "image"), style:" vertical-align: middle;width: 75px;height: 75px;border-radius: 50%;" %></centre>
+    
 
   </div>
-    
-      Name:<%=current_user.name %>
+   
     
   <div class="form-group">
    
     <%= f.hidden_field :name,value:current_user.name, class: 'form-control' %>
   </div>
-      Name:<%=current_user.email%>
+     
     
   <div class="form-group">
    
     <%= f.hidden_field :email,value:current_user.email, class: 'form-control' %>
 
   </div>
-    Phone:N/A
+   
   <div class="form-group">
    
     <%= f.hidden_field :phone, class: 'form-control' %>
@@ -37,6 +42,5 @@
     <%= f.submit("Next",class:"btn btn-primary float-right")%>
   </div>
 <% end %>
-<%= link_to "Want to change",edit_user_registration_path,target: :_blank ,remote:true %>
-</div>
 
+</div>
