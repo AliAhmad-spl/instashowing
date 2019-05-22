@@ -6,7 +6,9 @@
   <div class="form-group">
     <%= f.label :picture %>
     <%= f.hidden_field :picture , class: 'form-control' ,value:current_user&.profile_pic_url%>
-    <centre><%=image_tag (current_user&.profile_pic_url || "image"), style:" vertical-align: middle;width: 75px;height: 75px;border-radius: 50%;" %></centre>
+    <% if current_user.profile_pic.present?%>
+    <centre><%=image_tag (current_user&.profile_pic_url ), style:" vertical-align: middle;width: 75px;height: 75px;border-radius: 50%;" %></centre>
+    <%end%>
 
   </div>
     

@@ -39,12 +39,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
         set_minimum_password_length
         
       end
+      @property = resource.properties.last.id 
       Agent.create(name:resource.name,email:resource.email,picture:resource.profile_pic,property_id:resource.properties.last.id)
-     respond_to do |format|
-       format.html 
-       format.js 
-     end
-    @property = resource.properties.last.id 
+         respond_to do |format|
+           format.html {redirect_to root_path} 
+           format.js 
+         end
+        
    end
 
   # DELETE /resource

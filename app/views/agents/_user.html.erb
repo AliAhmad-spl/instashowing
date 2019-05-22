@@ -1,6 +1,6 @@
  
  
- <centre><%=image_tag (current_user.properties.last.agents.first.picture_url || "image"), style:" vertical-align: middle;width: 75px;height: 75px;border-radius: 50%;" %></centre><br>
+ <centre><%=image_tag (current_user&.properties&.last&.agents&.first&.picture_url ), style:" vertical-align: middle;width: 75px;height: 75px;border-radius: 50%;" %></centre><br>
     Name:<%= current_user.properties.last.agents.first.name%><br>
     Email:<%= current_user.properties.last.agents.first.email%><br>
     Phone:N/A
