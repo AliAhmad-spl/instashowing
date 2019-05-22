@@ -10,7 +10,7 @@
 <% current_user.properties.each do |property| %>
     <div class="col-md-4 mb-3">
       <div class="propert-box">
-        <div class="property" style="background-image: url(<%= property.pictures[0].url %>)">
+        <div class="property" style="background-image: url(<%= property&.pictures[0]&.url %>)">
           <div class="listing-badges">
           <span class="featured">
             <%= property.status %>
@@ -39,8 +39,10 @@
           </div> -->
           <div class="col-6 text-center">
             <p class="font-weight-bold mb-0">Agent</p>
-           <%=image_tag (property&.agents&.last&.picture_url || "image"), style:" vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;" %>
+           <%=image_tag (property.user.profile_pic_url || "image"), style:" vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;" %>
+           <% if property.agents.count > 0%>
             <%= link_to property&.agents&.last&.name, agent_path(id:property&.agents&.last&.id) %>
+            <%end%>
           </div>
         </div>
       </div>

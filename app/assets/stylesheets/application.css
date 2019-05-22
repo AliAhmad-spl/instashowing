@@ -15,6 +15,10 @@
  *= require_self
  */
 
+.bar {
+    height: 18px;
+    background: green;
+}
 @font-face {
   font-family: "Heebo", sans-serif;
   src: url('Heebo-Regular.ttf') format('opentype');
