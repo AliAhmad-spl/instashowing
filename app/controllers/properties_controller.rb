@@ -49,7 +49,7 @@ class PropertiesController < ApplicationController
     if @property.update(property_params)
        @agent123 = Agent.new
        respond_to do |format|
-        format.html { redirect_to details_charges_path(id:@property.slug), id:@property.id, notice: 'Property was successfully updated.' }
+        format.html { redirect_to property_path(id:@property.slug), id:@property.id, notice: 'Property was successfully updated.' }
         format.js
       end
       
