@@ -329,6 +329,6 @@ img#blah:hover {
 .up-gallery-btn {
   position: absolute;
   top: 90px;
-  right: 25px;
+  right: 40px;
   z-index: 999;
 }
