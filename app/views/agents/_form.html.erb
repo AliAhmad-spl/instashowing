@@ -1,35 +1,44 @@
 
-
-
 <div class="form">
+  <% agent = Agent.new%>
 <%= form_for agent ,remote: true do |f| %>
 <h4 class="text-center mb-2">Agent Details</h4>
   <div class="form-group">
     <%= f.label :picture %>
-    <%= f.file_field :picture , class: 'form-control'%>
-  </div>
+    <%= f.hidden_field :picture , class: 'form-control' ,value:current_user&.profile_pic_url%>
+    <% if current_user.profile_pic.present?%>
+    <centre><%=image_tag (current_user&.profile_pic_url ), style:" vertical-align: middle;width: 75px;height: 75px;border-radius: 50%;" %></centre>
+    <%end%>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name,value:current_user.name, class: 'form-control' %>
   </div>
-
+    
+      Name:<%=current_user.name %>
+    
   <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email,value:current_user.email, class: 'form-control' %>
+   
+    <%= f.hidden_field :name,value:current_user.name, class: 'form-control' %>
   </div>
-
+      Name:<%=current_user.email%>
+    
   <div class="form-group">
-    <%= f.label :phone %>
-    <%= f.number_field :phone, class: 'form-control' %>
+   
+    <%= f.hidden_field :email,value:current_user.email, class: 'form-control' %>
+
+  </div>
+    Phone:N/A
+  <div class="form-group">
+   
+    <%= f.hidden_field :phone, class: 'form-control' %>
   </div>
   <div class="field">
 
-    <%= f.hidden_field :property_id, value: property_id %>
+    <%= f.hidden_field :property_id, value: current_user.properties.last.id %>
   </div>
 
   <div class="actions">
     <%= f.submit("Next",class:"btn btn-primary float-right")%>
   </div>
 <% end %>
+<%= link_to "Want to change",edit_user_registration_path,target: :_blank ,remote:true %>
 </div>
+

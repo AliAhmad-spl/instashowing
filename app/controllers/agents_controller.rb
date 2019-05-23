@@ -11,6 +11,7 @@ class AgentsController < ApplicationController
   def show
   end
 
+
   # GET /agents/new
   def new
     @agent = Agent.new

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :properties
   validates_uniqueness_of :email
   mount_uploader :profile_pic ,PictureUploader
-
+  has_many :charges
   has_many :orders
   def make_admin
     self.update!(admin: true)

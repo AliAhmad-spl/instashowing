@@ -15,30 +15,44 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
   end
+  def back
+    @property = current_user.properties.last
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   # GET /properties/1/edit
   def edit
   end
 
+  def get_status
+    uplo = current_user.properties.last.pictures.count
+    pre = params[:previous].to_i
+    single = 100/(params[:total_count].to_i)
+    prog = pre * single
+    prog = prog + single
+      
+    render :json => {progress: prog, prog_count: pre}
+  end
+
   # POST /properties
   def create
-    @property = Property.new(property_params)
+    @property = Property.create(property_params)
     @agent123 = Agent.new
-    if @property.save
-      respond_to do |format|
-        format.html { redirect_to new_agent_path(property_id:@property.id), notice: 'Property was successfully created.' }
-        format.js
-      end
-    else
-      render :new
-    end
   end
 
   # PATCH/PUT /properties/1
   def update
 
     if @property.update(property_params)
-      redirect_to controller: 'charges', action: 'details', id:@property.id, notice: 'Property was successfully updated.'
+       @agent123 = Agent.new
+       respond_to do |format|
+        format.html { redirect_to property_path(id:@property.slug), id:@property.id, notice: 'Property was successfully updated.' }
+        format.js
+      end
+      
     else
       render :edit
     end
@@ -49,6 +63,8 @@ class PropertiesController < ApplicationController
     @property.update(property_params)
     redirect_to properties_path
   end
+
+
 
   # DELETE /properties/1
   def destroy

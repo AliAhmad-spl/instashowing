@@ -8,8 +8,7 @@
                         <div class="row">
                           <div class="col-12">
                              <a class="btn btn-primary btn-block mt-1" href="#">Users</a>
-                             <a class="btn btn-primary btn-block mt-1" href="#">Categories</a>
-                             <a class="btn btn-primary btn-block mt-1" href="<%=%>">Facilities</a>
+                             <a class="btn btn-primary btn-block mt-1" href="<%=admin_trans_path%>">Transactions</a>
                           </div>
                         </div>    
                     </div>
@@ -24,39 +23,19 @@
                       <div class="col-md-4 mb-2">
                         <div class="card p-2 text-center">
                           <p>Total Users</p>
-                          <h3>40</h3>
+                          <h3><%=@users.size%></h3>
                         </div>
                       </div>
                       <div class="col-md-4 mb-2">
                         <div class="card p-2 text-center">
-                          <p>Total Users</p>
-                          <h3>40</h3>
+                          <p>Total Agents</p>
+                          <h3><%=@agents.size%></h3>
                         </div>
                       </div>
                       <div class="col-md-4 mb-2">
                         <div class="card p-2 text-center">
-                          <p>Total Users</p>
-                          <h3>40</h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4 mb-2">
-                        <div class="card p-2 text-center">
-                          <p>Total Users</p>
-                          <h3>40</h3>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mb-2">
-                        <div class="card p-2 text-center">
-                          <p>Total Users</p>
-                          <h3>40</h3>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mb-2">
-                        <div class="card p-2 text-center">
-                          <p>Total Users</p>
-                          <h3>40</h3>
+                          <p>Total Properties</p>
+                          <h3><%=@properties.size%></h3>
                         </div>
                       </div>
                     </div>
@@ -64,8 +43,28 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                  <h3 class="mb-3">All Users</h3>
-       
+                  <h3 class="mb-3">All User Details</h3>
+                   <table class="table table-bordered">
+                     <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Total paid</th>
+                      <th>Paid to</th>
+                     </tr>
+                     <%@users.each do|user|%>
+                     <tr>
+                       <td><%=user.name%></td>
+                       <td><%=user&.email%></td>
+                       <%user&.charges.each do |amount|%>
+                       <% total = 0%>
+                       <td>$<%= total = total+amount.amount%></td>
+                       <td><%= amount.property.name%></td>
+                       
+                       <%end%>
+                       
+                     </tr>
+                     <%end%>
+                   </table>
                 </div>
               </div>
             </div>

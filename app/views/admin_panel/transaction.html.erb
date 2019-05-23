@@ -1,0 +1,72 @@
+<div class="container-fluid container-gray py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-dark mt-1 text-center"> Admin </h2>
+                        <div class="row">
+                          <div class="col-12">
+                             <a class="btn btn-primary btn-block mt-1" href="<%=admin_panel_path%>">Users</a>
+                             <a class="btn btn-primary btn-block mt-1" href="<%=admin_trans_path%>">Transactions</a>
+                          </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                    <h3 class="mb-3">Statistics</h3>
+                    <div class="row">
+                      <div class="col-md-4 mb-2">
+                        <div class="card p-2 text-center">
+                          <p>Total Users</p>
+                          <h3><%=@users.size%></h3>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-2">
+                        <div class="card p-2 text-center">
+                          <p>Total Agents</p>
+                          <h3><%=@agents.size%></h3>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-2">
+                        <div class="card p-2 text-center">
+                          <p>Total Properties</p>
+                          <h3><%=@properties.size%></h3>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                  <h3 class="mb-3">All Transactions</h3>
+                   <table class="table table-bordered">
+                     <tr>
+                      <th>Property Name</th>
+                      <th>Agent name</th>
+                      <th>Total paid</th>
+                     </tr>
+                     <%@users.each do|user|%>
+                     <tr>
+                       <%user&.charges.each do |amount|%>
+                       <% total = 0%>
+                       <td><%=amount.property.name%></td>
+                       <td><%=amount.property.agents.first.name%></td>
+                       <td>$<%= total = total+amount.amount%></td>
+                       
+                       
+                       <%end%>
+                       
+                     </tr>
+                     <%end%>
+                   </table>
+                </div>
+              </div>
+            </div>
+        </div>   
+    </div>    
+</div>

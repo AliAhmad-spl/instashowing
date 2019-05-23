@@ -1,5 +1,22 @@
 <div class="container-fluid bg-light">
 <div class="demo-gallery">
+             <%= form_tag charges_path do %>
+        <div id="error_explanation">
+          <% if flash[:error].present? %>
+            <p><%= flash[:error] %></p>
+          <% end %>
+        </div>
+        <%= hidden_field_tag(:property,@property.id) %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Subscription"
+          data-amount="1000.00"
+          data-locale="auto">
+        </script>
+        <p class="text-center pt-2 mb-0">You won't be charged yet</p>
+        <% end %>
+      <%= link_to "edit",edit_property_path(id:@property.id) ,class:"btn btn-warning"%>
+ 
 <div id="lightgallery" class="row">
     <div class="col-6">
         <div class="row height-image">
@@ -37,7 +54,7 @@
 
           <h4 class="mt-1">Bed Room</h4>
           <hr class="my-2">
-          <%= @property.beds %> signle bed
+          <%= @property.beds %> single bed
         </div>
       </div>
       <div class="col-sm-3 text-center">
@@ -69,6 +86,8 @@
           <%= @property.approval_type.humanize %>
         </div>
       </div>
+    
+       
 
     </div>
     <h3 class="mb-2 mt-3">Description</h3>

@@ -1,0 +1,46 @@
+ 
+ 
+ <centre><%=image_tag (current_user&.properties&.last&.agents&.first&.picture_url ), style:" vertical-align: middle;width: 75px;height: 75px;border-radius: 50%;" %></centre><br>
+    Name:<%= current_user.properties.last.agents.first.name%><br>
+    Email:<%= current_user.properties.last.agents.first.email%><br>
+    Phone:N/A
+
+<div class="form">
+  <% agent = Agent.new%>
+<%= form_for agent ,remote: true do |f| %>
+
+  <div class="form-group">
+    
+    <%= f.hidden_field :picture , class: 'form-control' ,value:current_user&.profile_pic_url%>
+    
+
+  </div>
+   
+    
+  <div class="form-group">
+   
+    <%= f.hidden_field :name,value:current_user.name, class: 'form-control' %>
+  </div>
+     
+    
+  <div class="form-group">
+   
+    <%= f.hidden_field :email,value:current_user.email, class: 'form-control' %>
+
+  </div>
+   
+  <div class="form-group">
+   
+    <%= f.hidden_field :phone, class: 'form-control' %>
+  </div>
+  <div class="field">
+
+    <%= f.hidden_field :property_id, value: current_user.properties.last.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit("Next",class:"btn btn-primary float-right")%>
+  </div>
+<% end %>
+
+</div>

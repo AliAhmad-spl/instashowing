@@ -4,7 +4,7 @@ class ChargesController < ApplicationController
 
 	def create
 	# Amount in cents
-		@amount = 500
+		@amount = 1000
 		customer = Stripe::Customer.create(
 		:email => params[:stripeEmail],
 		:source => params[:stripeToken]
@@ -18,6 +18,7 @@ class ChargesController < ApplicationController
 		Property.find(params[:property]).update(status:0)
 		@live = Property.find(params[:property].to_i)
 		 @live.update(stripe_id:charge.id)
+		 Charge.create(amount: 5, property_id:@live.id, user_id:current_user.id)
 
 	  
 	end

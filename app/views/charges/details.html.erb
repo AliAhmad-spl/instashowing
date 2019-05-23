@@ -15,7 +15,7 @@
         Total
       </div>
       <div class="col-6 text-right font-weight-bold">
-        $18,00
+        $10.00
       </div>
     </div>
   <%= form_tag charges_path do %>
@@ -28,7 +28,7 @@
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Subscription"
-          data-amount="500.00"
+          data-amount="1000.00"
           data-locale="auto">
         </script>
         <p class="text-center pt-2 mb-0">You won't be charged yet</p>

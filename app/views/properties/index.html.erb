@@ -10,7 +10,7 @@
 <% current_user.properties.each do |property| %>
     <div class="col-md-4 mb-3">
       <div class="propert-box">
-        <div class="property" style="background-image: url(<%= property.pictures[0].url %>)">
+        <div class="property" style="background-image: url(<%= property&.pictures[0]&.url %>)">
           <div class="listing-badges">
           <span class="featured">
             <%= property.status %>
@@ -33,9 +33,18 @@
             <p class="font-weight-bold mb-0">Baths</p>
             <p><%= property.baths %></p>
           </div>
-          <div class="col-6 text-center">
+          <!-- <div class="col-6 text-center">
             <p class="font-weight-bold mb-0">Approval Type</p>
             <p><%= link_to property.approval_type.humanize, approval_new_properties_path(id:property.id),class:"" %></p>
+          </div> -->
+          <div class="col-6 text-center">
+            <p class="font-weight-bold mb-0">Agent</p>
+            <% if current_user.profile_pic.present?%>
+              <%=image_tag (property&.user&.profile_pic_url),style:" vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;" %>
+           <% end %>
+           <% if property.agents.count > 0%>
+            <%= link_to property&.agents&.last&.name, agent_path(id:property&.agents&.last&.id) %>
+            <%end%>
           </div>
         </div>
       </div>
@@ -52,6 +61,7 @@
             <%= link_to 'Delete', property, class:"btn btn-danger radius-5", method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
           <div class="col-3">
+            <% if property.status == "pending"%>
             <%= form_tag charges_path do %>
             <div id="error_explanation">
               <% if flash[:error].present? %>
@@ -62,19 +72,19 @@
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="Subscription"
-              data-amount="500.00"
+              data-amount="1000.00"
               data-locale="auto">
               </script>
               <% end %>
+              <%else%>
+               <%= link_to("Invoice", Stripe::Charge.retrieve(property.stripe_id).receipt_url, target: :_blank,class:"btn btn-warning" ) if property.stripe_id.present?  %>
+              <%end%>
 
 
           </div>
         </div>
       </div>
-
-
-
-      </div>
+     </div>
     </div>
   <%end%>
   </div>
