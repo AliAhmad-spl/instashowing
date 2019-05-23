@@ -27,6 +27,16 @@ class PropertiesController < ApplicationController
   def edit
   end
 
+  def get_status
+    uplo = current_user.properties.last.pictures.count
+    pre = params[:previous].to_i
+    single = 100/(params[:total_count].to_i)
+    prog = pre * single
+    prog = prog + single
+      
+    render :json => {progress: prog, prog_count: pre}
+  end
+
   # POST /properties
   def create
     @property = Property.create(property_params)
@@ -53,6 +63,8 @@ class PropertiesController < ApplicationController
     @property.update(property_params)
     redirect_to properties_path
   end
+
+
 
   # DELETE /properties/1
   def destroy

@@ -18,10 +18,8 @@
         <div class="form-group">
           <%= form.label :picture %>
           
-          <%= form.file_field :pictures, multiple:true,id:'fileUpload',required: true, class: 'form-control' %>
-              <div id="progress">
-                <div class="bar" style="width: 0%;"></div>
-              </div>
+          <%= form.file_field :pictures, multiple:true, id:'fileUpload', required: true, class: 'form-control' %>
+          <div id="upload_bar"></div>
           
         </div>
 
@@ -48,7 +46,7 @@
         </div>
 
         <div class="actions">
-          <%= form.submit("Next",class:"btn btn-primary float-right" ,data: { disable_with: 'Uploading'}) %>
+          <%= form.submit("Next",class:"btn btn-primary float-right", id: "next",data: { disable_with: 'Uploading'}) %>
         </div>
       <% end %>
       </div>
@@ -73,11 +71,45 @@
   $('.step').eq(0).addClass('active');
 </script>
 
-<script id="template-upload" type="text/x-tmpl">
-  <div class="upload">
-    {%o.name%}
-    <div class="progress"><div class="bar" style="width: 0%"></div></div>
-  </div>
+<script type="text/javascript">
+  $("#next").click(function(){
+    $("#upload_bar").empty().append('<div class="progress"><div class="progress-bar" style="width:2%; background-color: green;">2%</div></div>');
+    var total_files_count = $("#fileUpload")[0].files.length;
+    
+    
+       var previous = 0;
+          
+    function update_status(){
+      
+      $.ajax({
+        type:"GET",
+        url:"<%= get_status_properties_path %>",
+        dataType:"json",
+        data: {total_count: total_files_count,previous: previous++},
+        
+        success: function(result){
+         html = '<div class="progress"><div class="progress-bar" style="width:'+result.progress+'%; background-color: green;">'+result.progress+'%</div></div>';
+          $("#upload_bar").empty().append(html);
+
+           
+          // if (result.prog_count < total_files_count){
+          //   update_status();
+          // }
+          // else{
+           
+          //   return;
+          // }
+        }
+
+      });
+    
+    }
+    
+    for(var i=0; i<total_files_count;i++)
+    {
+    update_status();
+    }    
+  });
 </script>
 
 
