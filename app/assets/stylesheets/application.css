@@ -326,3 +326,9 @@ img#blah:hover {
 .label-w {
   width: 100%;
 }
+.up-gallery-btn {
+  position: absolute;
+  top: 90px;
+  right: 25px;
+  z-index: 999;
+}

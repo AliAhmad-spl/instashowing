@@ -74,10 +74,8 @@ ActiveRecord::Schema.define(version: 2019_05_13_083744) do
     t.inet "last_sign_in_ip"
     t.string "provider"
     t.string "uid"
-    t.datetime "birthday"
     t.string "name"
     t.string "gender"
-    t.string "profile_pic"
     t.string "phone_number"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
