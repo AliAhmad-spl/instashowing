@@ -2,6 +2,7 @@ class Property < ApplicationRecord
 	belongs_to :user
 	has_many :agents ,dependent: :destroy
 	has_one :charge
+	has_many :bookings ,dependent: :destroy
 	
 	enum approval_type: [:Auto_approves, :Agent_approves, :Occupant_approves]
 	mount_uploaders :pictures, PictureUploader

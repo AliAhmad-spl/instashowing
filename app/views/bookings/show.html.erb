@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @booking.start_time.strftime("%b %d ,%Y at %l:%M %p") %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @booking.end_time.strftime("%b %d ,%Y at %l:%M %p") %>
+</p>
+<%(@booking.start_time.to_datetime.to_i .. @booking.end_time.to_datetime.to_i).step(1.hour/2) do |date|%>
+		<%=Time.at(date)%><br>
+	<% end %>
+
+
+
+
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>
