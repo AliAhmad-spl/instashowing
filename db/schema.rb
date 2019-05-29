@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2019_05_27_093008) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.bigint "property_id"
+    t.string "email"
+    t.string "name"
+    t.integer "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_bookings_on_property_id"

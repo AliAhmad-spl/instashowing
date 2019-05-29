@@ -10,10 +10,24 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label :name %>
+<%= form.text_field :name ,required: true%>
 
+  </div>
+    <div class="field">
+    <%= form.label :email %>
+<%= form.email_field :email,required: true %>
+
+  </div>
+    <div class="field">
+    <%= form.label :phone %>
+<%= form.number_field :phone,required: true %>
+
+  </div>
   <div class="field">
     <%= form.label :start_time %>
-<%= form.datetime_select :start_time, {minute_step: 30} %> to <%= form.time_select :end_time, {minute_step: 30} %>
+<%= form.datetime_select :start_time, {minute_step: 30} %>
 
   </div>
  

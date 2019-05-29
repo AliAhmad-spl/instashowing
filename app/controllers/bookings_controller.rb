@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+    @property = Property.find(params[:id])
   end
 
   # GET /bookings/1/edit
@@ -53,6 +54,6 @@ class BookingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def booking_params
-      params.require(:booking).permit(:start_time, :end_time, :property_id)
+      params.require(:booking).permit(:start_time, :end_time, :property_id,:name,:email,:phone)
     end
 end

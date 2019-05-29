@@ -18,12 +18,12 @@
         <div class="form-group">
           <%= form.label :picture %>
           
-          <%= form.file_field :pictures, multiple:true, id:'fileUpload', required: true, class: 'form-control' %>
+          <%= form.file_field :pictures,multiple:true, id:'fileUpload', required: true, class: 'form-control' %>
           <div id="upload_bar"></div>
           
         </div>
 
-        <div class="form-group">
+       <!--  <div class="form-group">
           <%= form.label :beds %>
           <%= form.number_field :beds, class: 'form-control' %>
         </div>
@@ -40,7 +40,7 @@
         <div class="form-group">
           <%= form.label :description %>
           <%= form.text_area :description, class: 'form-control' %>
-        </div>
+        </div> -->
          <div class="field">
           <%= form.hidden_field :user_id ,value:current_user.id %>
         </div>

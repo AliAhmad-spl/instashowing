@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+  <strong>Name:</strong>
+  <%= @booking.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @booking.email %>
+</p>
+<p>
+  <strong>Phone:</strong>
+  <%= @booking.phone %>
+</p>
 <p>
   <strong>Start time:</strong>
   <%= @booking.start_time.strftime("%b %d ,%Y at %l:%M %p") %>
 </p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @booking.end_time.strftime("%b %d ,%Y at %l:%M %p") %>
-</p>
-<%(@booking.start_time.to_datetime.to_i .. @booking.end_time.to_datetime.to_i).step(1.hour/2) do |date|%>
-		<%=Time.at(date)%><br>
-	<% end %>
+
 
 
 
