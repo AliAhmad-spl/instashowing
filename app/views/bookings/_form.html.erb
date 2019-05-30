@@ -43,12 +43,20 @@
   inline:true,
   // timepicker:false,
   step: 30,
+  minDate: 0,
   minTime:'8:00',
-  maxTime:'20:30'
+  maxTime:'20:30',
+  timepicker: true
 	// onGenerate:function( ct ){
  //    jQuery(this).find('.xdsoft_date.xdsoft_weekend')
  //      .addClass('xdsoft_disabled');
  //  }
+ 
 });
-$('.xdsoft_timepicker').addClass('active');
+$('form').on('submit',function(){
+  if($('#datetimepicker3').val() == ''){
+    alert('Please Select Start Date');
+    return false;
+  }
+})
 </script>

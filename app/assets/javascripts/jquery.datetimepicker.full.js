@@ -553,9 +553,9 @@ var datetimepickerFactory = function ($) {
 		formatTime:	'H:i',
 		formatDate:	'Y/m/d',
 
-		startDate:	false, // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
+		startDate:	0, // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
 		step: 60,
-		monthChangeSpinner: true,
+		monthChangeSpinner: false,
 
 		closeOnDateSelect: false,
 		closeOnTimeSelect: true,
@@ -563,24 +563,24 @@ var datetimepickerFactory = function ($) {
 		closeOnInputClick: true,
 		openOnFocus: true,
 
-		timepicker: true,
+		timepicker: false,
 		datepicker: true,
 		weeks: false,
 
-		defaultTime: false,	// use formatTime format (ex. '10:00' for formatTime:	'H:i')
-		defaultDate: false,	// use formatDate format (ex new Date() or '1986/12/08' or '-1970/01/05' or '-1970/01/05')
+		defaultTime: '08:00',	// use formatTime format (ex. '10:00' for formatTime:	'H:i')
+		defaultDate: 0,	// use formatDate format (ex new Date() or '1986/12/08' or '-1970/01/05' or '-1970/01/05')
 
-		minDate: false,
+		minDate: 0,
 		maxDate: false,
-		minTime: false,
+		minTime: 0,
 		maxTime: false,
-		minDateTime: false,
+		minDateTime: 0,
 		maxDateTime: false,
 
 		allowTimes: [],
 		opened: false,
-		initTime: true,
-		inline: false,
+		initTime: false,
+		inline: true,
 		theme: '',
 		touchMovedThreshold: 5,
 
@@ -612,11 +612,11 @@ var datetimepickerFactory = function ($) {
 		scrollTime: true,
 		scrollInput: true,
 
-		lazyInit: false,
+		lazyInit: true,
 		mask: false,
 		validateOnBlur: true,
 		allowBlank: true,
-		yearStart: 1950,
+		yearStart: 2019,
 		yearEnd: 2050,
 		monthStart: 0,
 		monthEnd: 11,
