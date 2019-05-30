@@ -7,6 +7,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.string 	:email
       t.string 	:name
       t.integer :phone
+      t.integer :status ,default: 0
       t.timestamps
     end
   end

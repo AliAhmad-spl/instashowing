@@ -35,7 +35,7 @@
     <%= form.hidden_field :property_id,value:params[:id] %>
     <div class="actions text-right">
 
-      <% if @property.status == "live" %>
+      <% if @property.status == "Live" %>
        <%= form.submit "Create Booking", class:"btn btn-primary btn-lg mt-3" %>
       <%else%>
         <i  class="btn btn-primary btn-lg mt-3">Create Booking</i>

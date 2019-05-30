@@ -22,6 +22,8 @@ class BookingsController < ApplicationController
   # POST /bookings
   def create
     @booking = Booking.new(booking_params)
+      UserMailer.booking(@booking.email).deliver
+      UserMailer.agent(@booking.property.agents.first.email).deliver
     if @booking.save!
       redirect_to @booking, notice: 'Booking was successfully created.'
     else
@@ -53,6 +55,6 @@ class BookingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def booking_params
-      params.require(:booking).permit(:start_time, :end_time, :property_id,:name,:email,:phone)
+      params.require(:booking).permit(:start_time,:status,:end_time, :property_id,:name,:email,:phone)
     end
 end
