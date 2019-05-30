@@ -13,7 +13,7 @@
         <div class="form-group">
           <h4 class="text-center mb-2">New Property Details</h4>
           <%= form.label :name %>
-          <%= form.text_field :name, class: 'form-control' %>
+          <%= form.text_field :name, class: 'form-control', required: true %>
         </div>
         <div class="form-group">
           <%= form.label :picture %>
@@ -25,21 +25,21 @@
 
        <!--  <div class="form-group">
           <%= form.label :beds %>
-          <%= form.number_field :beds, class: 'form-control' %>
+          <%= form.number_field :beds, class: 'form-control', required: true %>
         </div>
 
         <div class="form-group">
           <%= form.label :baths %>
-          <%= form.number_field :baths, class: 'form-control' %>
+          <%= form.number_field :baths, class: 'form-control', required: true %>
         </div>
 
         <div class="form-group">
           <%= form.label :address %>
-          <%= form.text_field :address, class: 'form-control' %>
+          <%= form.text_field :address, class: 'form-control', required: true %>
         </div>
         <div class="form-group">
           <%= form.label :description %>
-          <%= form.text_area :description, class: 'form-control' %>
+          <%= form.text_area :description, class: 'form-control', required: true %>
         </div> -->
          <div class="field">
           <%= form.hidden_field :user_id ,value:current_user.id %>

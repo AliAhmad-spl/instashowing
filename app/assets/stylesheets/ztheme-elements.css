@@ -9117,8 +9117,8 @@ html.safari.iphone .bounce-loader .bounce3 {
 	font-size: inherit;
 	padding: 5px;
 	border: 0;
-	-webkit-box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-	box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	background: #252A2C;
 	text-align: left;
 }

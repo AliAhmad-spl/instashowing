@@ -1,10 +1,16 @@
-<h1>New Booking</h1>
- <div class="propert-box">
- 	<div class="property" style="background-image: url(<%= @property&.pictures[0]&.url %>)">
- 	</div>
- 	<%=@property.name%>
- </div>
-<%=@property.name%>
-<%= render 'form', booking: @booking %>
+<div class="container my-4">
+   <div class="mb-3">
+    <%= link_to '<i class="fas fa-arrow-left fa-2x mr-3"></i>'.html_safe, bookings_path %>
+    <span class="h3"><%=@property.name%></span>
+   </div>
+ <div class="row">
+  <div class="col-md-5">
+   <div class="property mb-3" style="background:url(<%= @property&.pictures[0]&.url %>)"></div>
+    <%= render 'form', booking: @booking %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Back', bookings_path %>
+
+
+
