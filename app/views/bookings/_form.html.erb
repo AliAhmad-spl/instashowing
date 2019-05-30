@@ -1,3 +1,6 @@
+<% if !user_signed_in?%>
+  <p>There is nothing here yet. If you have created this property, login to your agent account and make payment to activate this link</p>
+  <%else%>
 <div class="form-booking">
 </div>
   <%= form_with(model: booking, local: true) do |form| %>
@@ -31,7 +34,14 @@
     <%= form.text_field :start_time, id:"datetimepicker3" %>
     <%= form.hidden_field :property_id,value:params[:id] %>
     <div class="actions text-right">
-      <%= form.submit "Create Booking", class:"btn btn-primary btn-lg mt-3" %>
+
+      <% if @property.status == "live" %>
+       <%= form.submit "Create Booking", class:"btn btn-primary btn-lg mt-3" %>
+      <%else%>
+        <i  class="btn btn-primary btn-lg mt-3">Create Booking</i>
+      
+        <p>This is just a preview page. Bookings can only be created if you visit this page as customer via property URL. Property URL will be active after payment.</p>
+      <%end%>
     </div>
 </div>    
 <% end %>  
@@ -52,3 +62,4 @@
 });
 $('.xdsoft_timepicker').addClass('active');
 </script>
+<% end %>

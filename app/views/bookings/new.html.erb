@@ -1,4 +1,4 @@
-
+<% if user_signed_in?%>
  <div class="up-gallery-btn">
   <div class="row">
     <div class="col-9">
@@ -36,12 +36,13 @@
  <div class="row">
   <div class="col-md-5">
    <div class="property mb-3" style="background:url(<%= @property&.pictures[0]&.url %>)"></div>
-    <%= render 'form', booking: @booking %>
+    
     </div>
   </div>
 </div>
 
-
+<% end %>
+<%= render 'form', booking: @booking %>
 
 
 

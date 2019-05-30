@@ -22,7 +22,6 @@ class BookingsController < ApplicationController
   # POST /bookings
   def create
     @booking = Booking.new(booking_params)
-    @property = @booking.property
     if @booking.save!
       redirect_to @booking, notice: 'Booking was successfully created.'
     else
