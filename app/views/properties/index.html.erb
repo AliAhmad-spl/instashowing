@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
 <div class="container pt-3 pb-5">
-
-  <h1 class="text-center">Properties</h1>
-  <div class="text-right mb-3">
-    <%= link_to 'New Property', new_property_path ,class:"btn btn-primary"%>
+  <div class="row mb-3">
+    <div class="col-md-8">
+      <h2>Properties</h2>
+    </div>
+    <div class="col-md-4 text-right">
+      <%= link_to 'Add New Property', new_property_path ,class:"btn btn-primary"%>
+    </div>
   </div>
 
   <div class="row">
-<% current_user.properties.each do |property| %>
+    <% current_user.properties.each do |property| %>
     <div class="col-md-4 mb-3">
       <div class="propert-box">
         <div class="property" style="background-image: url(<%= property&.pictures[0]&.url %>)">

@@ -1,0 +1,54 @@
+<div class="form-booking">
+</div>
+  <%= form_with(model: booking, local: true) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :name, class:"mb-0" %>
+    <%= form.text_field :name ,required: true, class:"form-control mb-2" %>
+
+  </div>
+    <div class="field">
+    <%= form.label :email, class:"mb-0" %>
+    <%= form.email_field :email,required: true, class:"form-control mb-2" %>
+
+  </div>
+    <div class="field">
+    <%= form.label :phone, class:"mb-0" %>
+    <%= form.number_field :phone,required: true, class:"form-control mb-2" %>
+  </div>
+</div>
+<div class="col-md-7">
+    <%= form.text_field :start_time, id:"datetimepicker3" %>
+    <%= form.hidden_field :property_id,value:params[:id] %>
+    <div class="actions text-right">
+      <%= form.submit "Create Booking", class:"btn btn-primary btn-lg mt-3" %>
+    </div>
+</div>    
+<% end %>  
+
+
+<script>
+  $('#datetimepicker3').datetimepicker({
+  format:'m/d/Y h:i A',
+  inline:true,
+  // timepicker:false,
+  step: 30,
+  minTime:'8:00',
+  maxTime:'20:30'
+	// onGenerate:function( ct ){
+ //    jQuery(this).find('.xdsoft_date.xdsoft_weekend')
+ //      .addClass('xdsoft_disabled');
+ //  }
+});
+$('.xdsoft_timepicker').addClass('active');
+</script>

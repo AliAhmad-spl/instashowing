@@ -1,0 +1,47 @@
+
+ <div class="up-gallery-btn">
+  <div class="row">
+    <div class="col-9">
+      <%= form_tag charges_path do %>
+      <div id="error_explanation">
+      <% if flash[:error].present? %>
+       <p><%= flash[:error] %></p>
+      <% end %>
+      </div>
+      <%= hidden_field_tag(:property,@property.id) %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-description="Subscription"
+      data-amount="1000.00"
+      data-locale="auto">
+      </script>
+      <!-- <p class="text-center pt-2 mb-0 text-dark">You won't be charged yet</p> -->
+      <% end %>
+    </div>
+    <div class="col-3">
+      <%= link_to "edit",edit_property_path(id:@property.id) ,class:"btn btn-primary"%>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<div class="container my-4">
+   <div class="mb-3">
+    <%= link_to '<i class="fas fa-arrow-left fa-2x mr-3"></i>'.html_safe, bookings_path %>
+    <span class="h3"><%=@property.name%></span>
+   </div>
+ <div class="row">
+  <div class="col-md-5">
+   <div class="property mb-3" style="background:url(<%= @property&.pictures[0]&.url %>)"></div>
+    <%= render 'form', booking: @booking %>
+    </div>
+  </div>
+</div>
+
+
+
+
+

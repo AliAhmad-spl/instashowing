@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @booking.name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @booking.email %>
+</p>
+<p>
+  <strong>Phone:</strong>
+  <%= @booking.phone %>
+</p>
+<p>
+  <strong>Scheduled at:</strong>
+  <p style="color:green"><%= @booking.start_time.to_s %></p>
+</p>
+<h4>Your meeting is scheduled for property check your E-mail.</h4>
+
+
+
+
+
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>

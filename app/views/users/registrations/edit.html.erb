@@ -84,8 +84,11 @@ $(".imgInp").change(function(){
     readURL(this);
 });
 
-$(".middle").hover(function() {
-$("#blah").css("opacity","0.1");
+$(".middle").mouseover(function() {
+    $("#blah").css("opacity","0.1");
+});
+$(".middle").mouseout(function() {
+    $("#blah").css("opacity","1");
 });
 
 // hover
