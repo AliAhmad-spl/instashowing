@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_05_27_093008) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "start_time"
+    t.string "start_time"
     t.datetime "end_time"
     t.bigint "property_id"
     t.string "email"

@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]  
   # GET /bookings
   def index
     @bookings = Booking.all
@@ -23,8 +22,8 @@ class BookingsController < ApplicationController
   # POST /bookings
   def create
     @booking = Booking.new(booking_params)
-
-    if @booking.save
+    @property = @booking.property
+    if @booking.save!
       redirect_to @booking, notice: 'Booking was successfully created.'
     else
       render :new
@@ -51,6 +50,7 @@ class BookingsController < ApplicationController
     def set_booking
       @booking = Booking.find(params[:id])
     end
+    
 
     # Only allow a trusted parameter "white list" through.
     def booking_params

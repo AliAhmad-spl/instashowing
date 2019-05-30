@@ -1,10 +1,4 @@
 <p id="notice"><%= notice %></p>
- <div class="propert-box">
- 	<div class="property" style="background-image: url(<%= @booking.property&.pictures[0]&.url %>)">
- 	</div>
- 	<%=@booking.property.name%>
- </div>
-
 <p>
   <strong>Name:</strong>
   <%= @booking.name %>
@@ -19,7 +13,7 @@
 </p>
 <p>
   <strong>Scheduled at:</strong>
-  <p style="color:green"><%= @booking.start_time.strftime("%b %d ,%Y at %l:%M %p") %></p>
+  <p style="color:green"><%= @booking.start_time.to_s %></p>
 </p>
 <h4>Your meeting is scheduled for property check your E-mail.</h4>
 
