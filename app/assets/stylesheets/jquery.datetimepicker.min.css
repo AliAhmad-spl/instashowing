@@ -344,16 +344,18 @@
 }
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current.xdsoft_disabled:hover,
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box>div>div.xdsoft_current.xdsoft_disabled:hover {
-    background: #00a2ff !important;
-    box-shadow: #00a2ff 0 1px 3px 0 inset !important;
-    color: #fff !important
+    background: transparent !important;
+    color: #babbc0 !important;
+    cursor: default !important;
+    font-weight: normal !important;
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_disabled:hover,
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box>div>div.xdsoft_disabled:hover {
-    color: inherit !important;
-    background: inherit !important;
-    box-shadow: inherit !important
+    background: transparent !important;
+    color: #babbc0 !important;
+    cursor: default !important;
+    font-weight: normal !important;
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar th {
