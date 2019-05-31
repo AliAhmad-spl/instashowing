@@ -349,3 +349,12 @@ img#blah:hover {
     font-size: 12px;
     margin-left: 5px;
 }
+.property-booking i{
+  font-size: 20px;
+}
+.stripe-button-el{
+  width: auto !important;
+}
+.bookings-p form{
+  display: inline-block !important;
+}
